@@ -3,7 +3,9 @@ class DogHousesController < ApplicationController
 
   def show
     dog_house = DogHouse.find(params[:id])
-    render json: dog_house
+    render json: dog_house, include: :reviews
+    #using include review will call .reviews method that is provied with has_many :reviews macro. 
+    #nested has_many data. 
   end
 
   private
